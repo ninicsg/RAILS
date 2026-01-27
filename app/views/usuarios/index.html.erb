@@ -1,0 +1,28 @@
+<h1> 
+    Usuarios
+</h1>
+<table >
+    <thread>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Email
+            </th>
+        </tr>
+    </thread>
+    <tbody>
+
+    <% @usuarios.each do |usuario| %>
+        <tr> 
+            <td>
+                <%= usuario.nome %>
+            </td>
+            <td>
+                <%= usuario.email %>
+            </td>
+        </tr>
+            <% end %>
+    </tbody>
+</table>
