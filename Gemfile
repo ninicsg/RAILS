@@ -7,6 +7,8 @@ gem 'rails', '3.2.22.5'
 
 gem 'pg', '~> 0.20'
 
+gem 'pry'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,0 +1,40 @@
+<h1>Usuário</h1>
+
+<%= form_for @usuario do |f| %>
+
+  <% if @usuario.errors.any? %>
+    <div class="errors">
+      <h3>Erro ao salvar:</h3>
+      <ul>
+        <% @usuario.errors.full_messages.each do |erro| %>
+          <li><%= erro %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-caixa">
+
+    <div class="campo">
+      <%= f.label :nome, "Nome" %>
+      <%= f.text_field :nome %>
+    </div>
+
+    <div class="campo">
+      <%= f.label :email, "Email" %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="campo">
+      <%= f.label :senha, "Senha" %>
+      <%= f.password_field :senha %>
+    </div>
+
+    <div class="acao">
+      <%= f.submit "Salvar", class: "btn-primeiro" %>
+      <%= link_to "Cancelar", usuarios_path, class: "btn-primeiro" %>
+    </div>
+
+  </div>
+
+<% end %>

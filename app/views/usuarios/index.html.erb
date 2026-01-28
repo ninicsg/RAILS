@@ -1,28 +1,55 @@
-<h1> 
-    Usuarios
-</h1>
-<table >
-    <thread>
-        <tr>
-            <th>
-                Nome
-            </th>
-            <th>
-                Email
-            </th>
-        </tr>
-    </thread>
-    <tbody>
+<h1>Usuários</h1>
 
-    <% @usuarios.each do |usuario| %>
-        <tr> 
-            <td>
-                <%= usuario.nome %>
-            </td>
-            <td>
-                <%= usuario.email %>
-            </td>
+<%= link_to "Novo usuário", new_usuario_path, class: "btn-new" %>
+
+<% if @usuarios.present? %>
+
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+        <th>Contatos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @usuarios.each do |usuario| %>
+        <tr>
+          <td><%= usuario.id %></td>
+
+          <td>
+            <%= link_to usuario.nome, usuario_path(usuario) %>
+          </td>
+          <td>
+          <td><%= usuario.email %></td>
+
+          <td>
+            <%= link_to "Editar",
+              edit_usuario_path(usuario),
+              class: "btn-edit" %>
+          </td>
+
+          <td>
+            <%= link_to "Excluir",
+              usuario_path(usuario),
+              method: :delete,
+              data: { confirm: "Tem certeza?" },
+              class: "btn-delete" %>
+          </td>
+          <td>
+            <%= link_to "Ver contatos", usuario_contatos_path(id: usuario.id), class: "btn-segundo" %>
+          </td>
         </tr>
-            <% end %>
+      <% end %>
     </tbody>
-</table>
+  </table>
+
+<% else %>
+    Não existem usuários cadastrados
+<% end %>
+
+<%= link_to("Lista de contatos", contatos_path) %>

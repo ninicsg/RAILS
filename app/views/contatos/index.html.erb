@@ -1,0 +1,48 @@
+<h1>Contatos</h1>
+
+<%= link_to "Novo contato", new_contato_path, class: "btn-new" %>
+
+<% if @contatos.present? %>
+
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @contatos.each do |contato| %>
+        <tr>
+          <td><%= contato.id %></td>
+          <td><%= link_to contato.nome, contato_path(contato) %></td>
+          <td><%= contato.email %></td>
+          <td>
+            <%= link_to "Editar",
+              edit_contato_path(contato),
+              class: "btn-edit" %>
+          </td>
+          <td>
+            <%= link_to "Excluir",
+              contato_path(contato),
+              method: :delete,
+              data: { confirm: "Tem certeza?" },
+              class: "btn-delete" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+  <p class="empty">
+  Não há contatos cadastrados 
+  </p>
+<% end %>
+<p>
+<%= link_to "Voltar", usuarios_path, class: "btn-voltar" %>
+</p>

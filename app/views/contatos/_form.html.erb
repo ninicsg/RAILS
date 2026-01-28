@@ -1,0 +1,42 @@
+<h1>Contato</h1>
+
+<%= form_for @contato do |f| %>
+
+  <% if @contato.errors.any? %>
+    <div class="errors">
+      <h3>Erro ao salvar:</h3>
+      <ul>
+        <% @contato.errors.full_messages.each do |erro| %>
+          <li><%= erro %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-caixa">
+
+    <div class="campo">
+      <%= f.label :nome, "Nome" %>
+      <%= f.text_field :nome %>
+    </div>
+
+    <div class="campo">
+      <%= f.label :email, "Email" %>
+      <%= f.email_field :email %>
+    </div>
+    <% if @usuarios.present? %>
+    <div class="campo">
+      <%= f.label :usuario_id, "Usuario" %>
+      <%= f.select :usuario_id, options_from_collection_for_select(@usuarios, :id, :nome), include_blank: "Selecione um usuário" %>
+    </div>
+    <% else %>
+        Usuário: <%=  @usuario.nome %>
+    <% end %>
+
+    <div class="acao">
+      <%= f.submit "Salvar", class: "btn-primeiro" %>
+      <%= link_to "Cancelar", contatos_path, class: "btn-segundo" %>
+    </div>
+
+  </div>
+
+<% end %>

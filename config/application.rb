@@ -58,5 +58,9 @@ module Agenda
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.time_zone = 'Brasilia'
+
+    config.i18n.default_locale = 'pt-BR'
   end
 end
