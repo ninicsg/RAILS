@@ -8,7 +8,7 @@ Agenda::Application.routes.draw do
   put 'usuarios/:id', to: 'usuarios#update', as: :usuario
   delete 'usuarios/:id', to: 'usuarios#destroy', as: :usuario
   get 'usuario_contatos', to: 'usuarios#usuario_contatos', as: :usuario_contatos
-  
+
   get '/contatos', to: 'contatos#index', as: :contatos # contatos_path ( index)
   get 'contatos/new', to: 'contatos#new', as: :new_contato # new_contato_path
   get 'contatos/:id', to: 'contatos#show', as: :contato # contato_path 
@@ -17,7 +17,10 @@ Agenda::Application.routes.draw do
   put 'contatos/:id', to: 'contatos#update', as: :contato
   delete 'contatos/:id', to: 'contatos#destroy', as: :contato
 
-  
+  root :to => 'login#login'
+
+  post '/login', to: 'login#logar', as: :logar
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
