@@ -7,6 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if params[:action] != 'login' %>
+  <%= link_to "Sair", logout_path, class: "btn-sair" %>
+<% end %>
   <div class="div_pai">
     <div class= "div_filha">
   <%= yield %>

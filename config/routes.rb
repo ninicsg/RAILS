@@ -20,6 +20,7 @@ Agenda::Application.routes.draw do
   root :to => 'login#login'
 
   post '/login', to: 'login#logar', as: :logar
+  get '/login', to: 'login#logout', as: :logout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -12,4 +12,9 @@ class LoginController < ApplicationController
             redirect_to root_path
         end
     end
+
+    def logout
+        cookies.delete(:login_agenda)
+        redirect_to root_path
+    end
 end
