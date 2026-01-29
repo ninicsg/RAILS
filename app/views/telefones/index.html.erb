@@ -1,0 +1,41 @@
+<h1>Telefones</h1>
+
+<%= link_to "Novo telefone", new_telefone_path(), class: "btn-new" %>
+
+<%= link_to "Voltar", contatos_path, class: "btn-contatos" %>
+
+<% if @telefones.present? %>
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Número</th>
+        <th>Contato</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @telefones.each do |telefone| %>
+        <tr>
+          <td><%= telefone.id %></td>
+
+          <td><%= link_to telefone.telefone, telefone_path(telefone) %></td>
+
+          <td><%= link_to telefone.contato.nome, contato_path(telefone.contato) %></td>
+
+          <td>
+            <%= link_to "Editar", edit_telefone_path(telefone), class: "btn-edit" %>
+          </td>
+
+          <td>
+            <%= link_to "Excluir", telefone_path(telefone), method: :delete, data: { confirm: "Tem certeza?" }, class: "btn-delete" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Não existem telefones cadastrados para este usuário</p>
+<% end %>

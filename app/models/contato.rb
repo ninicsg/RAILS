@@ -8,4 +8,6 @@ class Contato < ActiveRecord::Base
     format: { with: /\A[^@\s]+@[^@\s]+\.[^@\s]+\z/, message: "inválido" }
 
     belongs_to :usuario
+    has_many :telefones
+
 end

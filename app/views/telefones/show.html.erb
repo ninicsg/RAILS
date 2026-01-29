@@ -1,0 +1,11 @@
+<h1>
+ Bem vindo aos telefones
+ </h1>
+ <br>ID do contato: <%=@telefone.contato_id %></br>
+ <br>Nome do contato: <%= @contato.nome %></br>
+<br> É principal?: <%= @telefone.eh_principal ? "Sim" : "Não" %></br>
+
+ <br>
+ </br>
+ 
+ <%= link_to "Voltar", contatos_path %>

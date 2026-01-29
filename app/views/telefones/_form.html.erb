@@ -1,0 +1,35 @@
+<%= form_for @telefone do |f| %>
+
+  <% if @telefone.errors.any? %>
+    <div class="errors">
+      <h3>Erro ao salvar:</h3>
+      <ul>
+        <% @telefone.errors.full_messages.each do |erro| %>
+          <li><%= erro %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-caixa">
+
+    <div class="campo">
+      <%= f.label :telefone, "Número" %>
+      <%= f.text_field :telefone %>
+    </div>
+
+    <div class="campo">
+      <%= f.label :eh_principal, "É principal?" %>
+      <%= f.check_box :eh_principal %>
+    </div>
+
+    <%= f.hidden_field :contato_id %>
+
+    <div class="acao">
+      <%= f.submit "Salvar", class: "btn-primeiro" %>
+      <%= link_to "Cancelar", telefones_path(contato_id: @telefone.contato_id), class: "btn-primeiro" %>
+    </div>
+
+  </div>
+
+<% end %>

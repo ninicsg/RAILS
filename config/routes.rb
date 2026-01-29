@@ -16,11 +16,21 @@ Agenda::Application.routes.draw do
   get 'contatos/:id/edit', to: 'contatos#edit', as: :edit_contato
   put 'contatos/:id', to: 'contatos#update', as: :contato
   delete 'contatos/:id', to: 'contatos#destroy', as: :contato
+  get 'contato_telefones', to: 'contatos#contato_telefones', as: :contato_telefones
+
 
   root :to => 'login#login'
 
   post '/login', to: 'login#logar', as: :logar
   get '/login', to: 'login#logout', as: :logout
+
+  get '/telefones', to: 'telefones#index', as: :telefones # telefones_path ( index)
+  get 'telefones/new', to: 'telefones#new', as: :new_telefone # new_telefone_path
+  get 'telefones/:id', to: 'telefones#show', as: :telefone # telefone_path 
+  post 'telefones', to: 'telefones#create', as: :telefone
+  get 'telefones/:id/edit', to: 'telefones#edit', as: :edit_telefone
+  put 'telefones/:id', to: 'telefones#update', as: :telefone
+  delete 'telefones/:id', to: 'telefones#destroy', as: :telefone
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

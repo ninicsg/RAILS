@@ -26,6 +26,9 @@
               edit_contato_path(contato),
               class: "btn-edit" %>
           </td>
+            <td>
+                <%= link_to "Ver telefones", contato_telefones_path(contato_id: contato.id), class: "btn-telefone" %>
+          </td>
           <td>
             <%= link_to "Excluir",
               contato_path(contato),
@@ -33,6 +36,7 @@
               data: { confirm: "Tem certeza?" },
               class: "btn-delete" %>
           </td>
+
         </tr>
       <% end %>
     </tbody>
@@ -45,5 +49,8 @@
 <% end %>
 <p>
 <%= link_to "Voltar", usuarios_path, class: "btn-voltar" %>
+</p>
+<p>
+<%= link_to("Lista de telefones", telefones_path) %>
 </p>
  

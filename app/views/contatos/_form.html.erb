@@ -1,7 +1,9 @@
-<h1>Contato</h1>
+<h1>Telefones de <%= @contato.nome %></h1>
+
 
 <%= form_for @contato do |f| %>
-
+<%= link_to "Novo telefone", new_telefone_path(contato_id: @contato.id), class: "btn-new" %>
+<%= link_to "Voltar", contatos_path, class: "btn-contatos" %>
   <% if @contato.errors.any? %>
     <div class="errors">
       <h3>Erro ao salvar:</h3>

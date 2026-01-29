@@ -54,5 +54,12 @@ class ContatosController < ApplicationController
     @contato.destroy
     redirect_to contatos_path(usuario_id: usuario_id)
   end
+  
+  def contato_telefones
+    @contato   = Contato.find(params[:contato_id] || params[:id])
+    @telefones = @contato.telefones
+
+    render 'telefones/index'
+  end
 
 end
